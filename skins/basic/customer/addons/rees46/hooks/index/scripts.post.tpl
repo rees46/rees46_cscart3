@@ -1,23 +1,29 @@
 {if $rees46 && $rees46.shop_id != ''}
   <script type="text/javascript">
+{literal}
     (function () { 
+{/literal}
       var link = document.createElement('link'); 
       link.setAttribute('rel', 'stylesheet'); 
       link.setAttribute('type', 'text/css'); 
       link.setAttribute('href', '//rees46.com/shop_css/{$rees46.shop_id}'); 
       document.getElementsByTagName('head')[0].appendChild(link); 
+{literal}
     })();
+{/literal}
   </script>
 
   <script type="text/javascript">
+{literal}
     function initREES46() {
       $(function () {
+{/literal}
         {if $auth.user_id > 0}
           REES46.init('{$rees46.shop_id}', {$auth.user_id|default:'null'});
         {else}
           REES46.init('{$rees46.shop_id}', null);
         {/if}
-
+{literal}
         if (!String.prototype.format) {
             String.prototype.format = function() {
                 var args = arguments;
@@ -29,7 +35,7 @@
                 });
             };
         }
-
+{/literal}
         {if $product}
           document.currentProductId = {$product.product_id};
         {/if}
@@ -39,20 +45,23 @@
           document.currentCart = document.currentCart.replace(/&quot;/g, '"');
           document.currentCart = JSON.parse(document.currentCart);
           var ids = [];
-
+{literal}
           for(var k in document.currentCart) {
             ids.push(document.currentCart[k].product_id);
           }
-
+{/literal}
           document.currentCart = ids;
         {else}
           document.currentCart = [];
         {/if}
-
+{literal}
         REES46.addReadyListener(function() {
-          {if $runtime.controller == 'products' && $runtime.mode == 'view'}
+{/literal}
+          {if $controller == 'products' && $mode == 'view'}
             {if $product}
+{literal}
               REES46.pushData('view', {
+{/literal}
                   item_id: {$product.product_id},
                   price: {$product.base_price},
                   {if $product.amount > 0}
@@ -64,11 +73,14 @@
                   name: '{$product.product}',
                   url: '{"products.view?product_id=`$product.product_id`"|fn_url}',
                   image_url: '{$product.main_pair.detailed.image_path}'
+{literal}
               });
+{/literal}
             {/if}
           {/if}
-
+{literal}
           $('.rees46').each(function() {
+{/literal}
             var recommenderBlock = $(this);
             var recommenderType = recommenderBlock.attr('data-type');
             var categoryId = recommenderBlock.attr('data-category');
@@ -89,7 +101,7 @@
                             '</div>'+
                        '</div>';
 
-
+{literal}
             if (recommenderType) {
               REES46.recommend({
                 recommender_type: recommenderType,
@@ -108,8 +120,16 @@
 
                   $(products).each(function() {
                     if (this.name != '') {
+                      var url = '';
+
+                      if (this.url.lastIndexOf('?') > 0) {
+                        url = this.url + '&';
+                      } else {
+                        url = this.url + '?';
+                      }
+
                       productsBlock += tpl_item.format(
-                        this.url + '?recommended_by=' + recommenderType,
+                        url + 'recommended_by=' + recommenderType,
                         this.name,
                         this.image_url,
                         this.price,
@@ -152,4 +172,5 @@
     };
     document.getElementsByTagName('head')[0].appendChild(script);
   </script>
+{/literal}
 {/if}

@@ -1,6 +1,6 @@
 <?php
 
-if (!defined('BOOTSTRAP')) { die('Access denied'); }
+if (!defined('AREA')) { die('Access denied'); }
 
 if ($mode == 'get_info') {
     $ids = array_map('intval', explode(',', $_REQUEST['product_ids']));
