@@ -24,7 +24,7 @@ function fn_rees46_generate_info()
           <p>Прочитать <a href="http://memo.mkechinov.ru/pages/viewpage.action?pageId=1409157" target="_blank">подробную инструкцию</a> по настройке модуля.</p>
         ';
 
-        $res = $res . '<p><a href="/admin.php?dispatch=rees46.export_orders" class="btn btn-primary">Выгрузить заказы</a> (может занять некоторое время)</p>';
+        $res = $res . '<p><a href="'. $config['admin_index']. '/admin.php?dispatch=rees46.export_orders" class="btn btn-primary">Выгрузить заказы</a> (может занять некоторое время)</p>';
 
         return $res;
     }

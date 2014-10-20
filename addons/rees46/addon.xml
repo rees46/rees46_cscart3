@@ -1,23 +1,21 @@
 <?xml version="1.0"?>
-
 <addon scheme="2.0">
     <id>rees46</id>
     <version>1.0</version>
     <default_language>RU</default_language>
     <priority>100500</priority>
     <auto_install>PROFESSIONAL,MULTIVENDOR,ULTIMATE</auto_install>
-
     <name>REES46: персональные рекомендации товаров в интернет-магазине</name>
     <description>
         Модуль персонализации REES46 анализирует действия покупателей на вашем интернет-магазине и уже с первых шагов выявляет цели и предпочтения каждого вашего посетителя.
     </description>
-    
-    <settings>
+    <settings edition_type="ROOT,ULT:VENDOR">
         <sections>
-            <section id="main" edition_type="ROOT">
+            <section id="general">
                 <name>REES46</name>
                 <items>
                     <item id="info">
+                        <name>info</name>
                         <type>info</type>
                         <handler>fn_rees46_generate_info</handler>
                         <value></value>
@@ -42,7 +40,6 @@
             </section>
         </sections>
     </settings>
-
     <language_variables>
         <item lang="RU" id="block_rees46">Блок рекомендаций REES46</item>
         <item lang="RU" id="block_rees46_description">Блок рекомендаций выбранного типа</item>
@@ -52,7 +49,6 @@
         <item lang="RU" id="rees46_recently_viewed">Вы недавно смотрели</item>
         <item lang="RU" id="rees46_see_also">Посмотрите также</item>
         <item lang="RU" id="rees46_similar">Похожие товары</item>
-
         <item lang="EN" id="block_rees46">Блок рекомендаций REES46</item>
         <item lang="EN" id="block_rees46_description">Блок рекомендаций выбранного типа</item>
         <item lang="EN" id="rees46_also_bought">С этим также покупают</item>

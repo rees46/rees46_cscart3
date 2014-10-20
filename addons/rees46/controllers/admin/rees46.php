@@ -7,7 +7,7 @@ if ($mode == 'export_orders') {
     if (($shop_id == '') || ($shop_secret == '')) {
         fn_set_notification('E', 'Ошибка' ,'Для выгрузки заказов введите код и секретный ключ вашего магазина в настройках модуля.', 'I');
     } else {
-        $params = array('timestamp > ' . strtotime('-6 months'), 'items_per_page' => 1000);
+        $params = array('timestamp > ' . strtotime('-6 months'), 'items_per_page' => 500);
         $orders = fn_get_orders($params);
 
         $processed_orders = array();
