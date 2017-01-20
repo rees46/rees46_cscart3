@@ -14,14 +14,14 @@ function fn_rees46_generate_info()
             <li>Создайте магазин;</li>
             <li>Введите код вашего магазина в поле ниже;</li>
             <li>Нажмите "Сохранить".</li>
-            <li>Ознакомьтесь с <a href="http://memo.mkechinov.ru/display/R46D/CS-Cart" target="_blank">подробной инструкцией</a> по настройке модуля.</li>
+            <li>Ознакомьтесь с <a href="http://docs.rees46.com/pages/viewpage.action?pageId=1409157" target="_blank">подробной инструкцией</a> по настройке модуля.</li>
           </ol>
         </p>
         ';
     } else {
         $res = '
           <p>Перейти к <a href="http://rees46.com/shops" target="_blank">статистике эффективности</a> работы системы персонализации.</p>
-          <p>Прочитать <a href="http://memo.mkechinov.ru/pages/viewpage.action?pageId=1409157" target="_blank">подробную инструкцию</a> по настройке модуля.</p>
+          <p>Прочитать <a href="http://docs.rees46.com/pages/viewpage.action?pageId=1409157" target="_blank">подробную инструкцию</a> по настройке модуля.</p>
         ';
 
         $res = $res . '<p><a href="'. $config['admin_index']. '/admin.php?dispatch=rees46.export_orders" class="btn btn-primary">Выгрузить заказы</a> (может занять некоторое время)</p>';
